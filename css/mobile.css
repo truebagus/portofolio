@@ -42,3 +42,43 @@
     font-size: 1.2rem;
   }
 }
+
+@media (max-width: 768px) {
+  .skills-category {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .category-title {
+    width: 100%;
+    text-align: center;
+    /* Menangani karakter yang dianimasikan */
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* Style untuk span karakter individual */
+  .character {
+    display: inline-block;
+    text-align: center;
+    /* Memberikan sedikit ruang antar karakter */
+    margin: 0 1px;
+  }
+
+  /* Memastikan container untuk grid tetap center */
+  .skills-grid {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+/* Tambahan untuk animasi */
+.changing {
+  display: inline-block;
+  text-align: center;
+  min-width: 1em; /* Memastikan lebar minimum untuk setiap karakter */
+}
