@@ -1,0 +1,313 @@
+* {
+  margin: 0;
+}
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #000;
+  height: 100%; /* Mengatur tinggi body untuk 100% dari html */
+  margin: 0; /* Menghilangkan margin default */
+  padding: 0; /* Menghilangkan padding default */
+}
+
+.navbar {
+  z-index: 2;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  justify-content: center; /* Center navbar items */
+  align-items: center; /* Vertically center items */
+}
+
+/* Pastikan nav-links berada di tengah dan tidak terlalu lebar */
+.nav-links {
+  display: flex;
+  justify-content: center; /* Center content within nav-links */
+  list-style: none;
+  gap: 2rem;
+  width: auto; /* Sesuaikan lebar nav-links agar tidak melebar penuh */
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  letter-spacing: 0.17em;
+}
+.hamburger {
+  display: none;
+  cursor: pointer;
+}
+
+.modal-card {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 1000px;
+  max-height: 100vh;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  color: white;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s ease;
+  overflow-y: auto;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  z-index: 3;
+  border: none;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  margin: 0 auto;
+}
+
+.modal-card.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.menu-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: white;
+  text-align: center;
+  letter-spacing: 2px;
+  min-height: 2.5rem;
+  line-height: 2.5rem;
+  white-space: nowrap;
+  transform: translateZ(0);
+  contain: layout style paint;
+}
+
+.menu-section {
+  padding: 2rem 0;
+  animation: gradientBorder 5s infinite;
+  position: relative;
+  min-height: 50px;
+}
+
+.menu-section:not(:last-child) {
+  border-bottom: 2px solid;
+  margin-bottom: 2rem;
+}
+
+.character {
+  display: inline-block;
+  min-width: 0.5em;
+  text-align: center;
+  vertical-align: middle;
+  transform: translateZ(0);
+}
+
+.character.changing {
+  animation: textChange 1s infinite;
+  color: #133e87;
+}
+
+@keyframes textChange {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* About section with photo */
+.about-content {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.about-content,
+.contact-info {
+  position: relative;
+  z-index: 1;
+}
+
+.profile-photo {
+  width: 200px;
+  /* height: 200px; */
+  border-radius: 15px;
+  /* object-fit: cover;
+  border: 3px solid white; */
+}
+
+.about-text {
+  flex: 1;
+}
+
+/* Contact section */
+.contact-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.contact-item {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: center;
+}
+
+/* Animated gradient borders */
+@keyframes gradientBorder {
+  0% {
+    border-image: linear-gradient(45deg, #ff6b6b, #4ecdc4) 1;
+  }
+  25% {
+    border-image: linear-gradient(45deg, #4ecdc4, #45b7d1) 1;
+  }
+  50% {
+    border-image: linear-gradient(45deg, #45b7d1, #96c93d) 1;
+  }
+  75% {
+    border-image: linear-gradient(45deg, #96c93d, #ff6b6b) 1;
+  }
+  100% {
+    border-image: linear-gradient(45deg, #ff6b6b, #4ecdc4) 1;
+  }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scrollBlink {
+  0%,
+  100% {
+    opacity: 0;
+    top: 8px;
+  }
+  50% {
+    opacity: 1;
+    top: 30px;
+  }
+}
+
+/* Scrollbar styling */
+.modal-card::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal-card::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+.modal-card::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+}
+
+.menu-container {
+  display: none; /* Menyembunyikan menu secara default */
+  opacity: 0; /* Awalnya tidak terlihat */
+  transition: opacity 0.5s ease, transform 0.5s ease; /* Transisi */
+}
+
+.menu-container.active {
+  display: block; /* Menampilkan menu */
+  opacity: 1; /* Menjadikannya terlihat */
+  transform: translateY(0); /* Posisi normal */
+}
+
+/* Menambahkan gaya untuk posisi menu yang keluar */
+.menu-container:not(.active) {
+  transform: translateY(-20px); /* Menggeser menu ke atas ketika tidak aktif */
+}
+
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  transition: filter 0.3s ease;
+  z-index: 1;
+}
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+/* Scroll icon container */
+.scroll-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* Mouse icon styling */
+.mouse {
+  width: 24px;
+  height: 44px;
+  border: 2px solid #fff;
+  border-radius: 50px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Scroll wheel inside mouse */
+.scroll-wheel {
+  width: 4px;
+  height: 10px;
+  background-color: #fff;
+  border-radius: 2px;
+  position: absolute;
+  top: 6px;
+  animation: scroll 1.2s infinite;
+}
+
+/* Scroll text positioned below mouse */
+.scroll-text {
+  margin-top: 10px; /* Space between mouse and scroll text */
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  letter-spacing: 1px;
+  text-align: center;
+}
+/* Scroll wheel animation (blink and move up and down) */
+@keyframes scroll {
+  0% {
+    top: 6px;
+    opacity: 0.8;
+  }
+  50% {
+    top: 16px;
+    opacity: 0.3;
+  }
+  100% {
+    top: 6px;
+    opacity: 0.8;
+  }
+}

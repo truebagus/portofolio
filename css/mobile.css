@@ -1,0 +1,44 @@
+/* skills */
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+  }
+
+  .skill-item {
+    padding: 1rem;
+    background-size: 50% !important;
+  }
+
+  .skill-item span {
+    font-size: 0.9rem;
+  }
+
+  h3.category-title {
+    font-size: 1rem; /* Ini lebih spesifik */
+  }
+}
+
+@media (max-width: 768px) {
+  .main-title {
+    font-size: 3rem;
+  }
+
+  .about-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .profile-photo {
+    width: 150px;
+    height: 160px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 1.2rem;
+  }
+}
