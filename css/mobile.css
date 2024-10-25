@@ -52,7 +52,6 @@
   }
 
   .category-title {
-    width: 100%;
     text-align: center;
     /* Menangani karakter yang dianimasikan */
     display: flex;
