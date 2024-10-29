@@ -38,6 +38,9 @@
 }
 
 @media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 1.2rem;
+  }
   /* Efek typing dasar */
   .hero-content h1 {
     overflow: hidden;
