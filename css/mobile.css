@@ -38,8 +38,351 @@
 }
 
 @media (max-width: 768px) {
+  /* Efek typing dasar */
   .hero-content h1 {
-    font-size: 1.2rem;
+    overflow: hidden;
+    border-right: 0.15em solid orange;
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: 0.15em;
+    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+  }
+
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+
+  @keyframes blink-caret {
+    from,
+    to {
+      border-color: transparent;
+    }
+    50% {
+      border-color: orange;
+    }
+  }
+
+  /* Efek glitch yang dimulai setelah typing */
+  .glitch {
+    color: rgb(255, 247, 0);
+    position: relative;
+    font-size: 25px;
+    /* Menunda animasi glitch hingga typing selesai */
+    animation: glitch 5s infinite;
+    animation-delay: 3.5s; /* Menunggu typing selesai */
+  }
+
+  .glitch::before {
+    content: attr(data-text);
+    position: absolute;
+    left: -2px;
+    text-shadow: -5px 0 magenta;
+    background: black;
+    overflow: hidden;
+    top: 0;
+    width: 100%;
+    animation: noise-1 3s linear infinite alternate-reverse, glitch 5s infinite;
+    animation-delay: 3.5s; /* Menunggu typing selesai */
+  }
+
+  .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 2px;
+    text-shadow: -2px 0 lightgreen;
+    background: black;
+    overflow: hidden;
+    top: 0;
+    width: 100%;
+    animation: noise-2 3s linear infinite alternate-reverse, glitch 5s infinite;
+    animation-delay: 5s; /* Menunggu typing selesai */
+  }
+
+  @keyframes glitch {
+    1% {
+      transform: rotateX(10deg) skewX(90deg);
+    }
+    2% {
+      transform: rotateX(0deg) skewX(0deg);
+    }
+  }
+
+  @keyframes noise-1 {
+    0% {
+      clip-path: inset(40px 0 51px 0);
+    }
+    3.33333% {
+      clip-path: inset(92px 0 5px 0);
+    }
+    6.66667% {
+      clip-path: inset(23px 0 68px 0);
+    }
+    10% {
+      clip-path: inset(78px 0 13px 0);
+    }
+    13.33333% {
+      clip-path: inset(12px 0 79px 0);
+    }
+    16.66667% {
+      clip-path: inset(55px 0 36px 0);
+    }
+    20% {
+      clip-path: inset(31px 0 60px 0);
+    }
+    23.33333% {
+      clip-path: inset(88px 0 3px 0);
+    }
+    26.66667% {
+      clip-path: inset(15px 0 76px 0);
+    }
+    30% {
+      clip-path: inset(83px 0 8px 0);
+    }
+    33.33333% {
+      clip-path: inset(25px 0 66px 0);
+    }
+    36.66667% {
+      clip-path: inset(70px 0 21px 0);
+    }
+    40% {
+      clip-path: inset(44px 0 47px 0);
+    }
+    43.33333% {
+      clip-path: inset(98px 0 3px 0);
+    }
+    46.66667% {
+      clip-path: inset(18px 0 73px 0);
+    }
+    50% {
+      clip-path: inset(86px 0 5px 0);
+    }
+    53.33333% {
+      clip-path: inset(29px 0 62px 0);
+    }
+    56.66667% {
+      clip-path: inset(75px 0 16px 0);
+    }
+    60% {
+      clip-path: inset(34px 0 57px 0);
+    }
+    63.33333% {
+      clip-path: inset(93px 0 4px 0);
+    }
+    66.66667% {
+      clip-path: inset(20px 0 71px 0);
+    }
+    70% {
+      clip-path: inset(81px 0 10px 0);
+    }
+    73.33333% {
+      clip-path: inset(26px 0 65px 0);
+    }
+    76.66667% {
+      clip-path: inset(68px 0 23px 0);
+    }
+    80% {
+      clip-path: inset(42px 0 49px 0);
+    }
+    83.33333% {
+      clip-path: inset(95px 0 6px 0);
+    }
+    86.66667% {
+      clip-path: inset(16px 0 75px 0);
+    }
+    90% {
+      clip-path: inset(84px 0 7px 0);
+    }
+    93.33333% {
+      clip-path: inset(27px 0 64px 0);
+    }
+    96.66667% {
+      clip-path: inset(73px 0 18px 0);
+    }
+    100% {
+      clip-path: inset(38px 0 53px 0);
+    }
+  }
+
+  @keyframes noise-2 {
+    0% {
+      clip-path: inset(35px 0 56px 0);
+    }
+    3.33333% {
+      clip-path: inset(87px 0 4px 0);
+    }
+    6.66667% {
+      clip-path: inset(28px 0 63px 0);
+    }
+    10% {
+      clip-path: inset(73px 0 18px 0);
+    }
+    13.33333% {
+      clip-path: inset(17px 0 74px 0);
+    }
+    16.66667% {
+      clip-path: inset(50px 0 41px 0);
+    }
+    20% {
+      clip-path: inset(36px 0 55px 0);
+    }
+    23.33333% {
+      clip-path: inset(83px 0 8px 0);
+    }
+    26.66667% {
+      clip-path: inset(20px 0 71px 0);
+    }
+    30% {
+      clip-path: inset(78px 0 13px 0);
+    }
+    33.33333% {
+      clip-path: inset(30px 0 61px 0);
+    }
+    36.66667% {
+      clip-path: inset(65px 0 26px 0);
+    }
+    40% {
+      clip-path: inset(49px 0 42px 0);
+    }
+    43.33333% {
+      clip-path: inset(93px 0 8px 0);
+    }
+    46.66667% {
+      clip-path: inset(23px 0 68px 0);
+    }
+    50% {
+      clip-path: inset(81px 0 10px 0);
+    }
+    53.33333% {
+      clip-path: inset(34px 0 57px 0);
+    }
+    56.66667% {
+      clip-path: inset(70px 0 21px 0);
+    }
+    60% {
+      clip-path: inset(39px 0 52px 0);
+    }
+    63.33333% {
+      clip-path: inset(88px 0 3px 0);
+    }
+    66.66667% {
+      clip-path: inset(25px 0 66px 0);
+    }
+    70% {
+      clip-path: inset(76px 0 15px 0);
+    }
+    73.33333% {
+      clip-path: inset(31px 0 60px 0);
+    }
+    76.66667% {
+      clip-path: inset(63px 0 28px 0);
+    }
+    80% {
+      clip-path: inset(47px 0 44px 0);
+    }
+    83.33333% {
+      clip-path: inset(90px 0 1px 0);
+    }
+    86.66667% {
+      clip-path: inset(21px 0 70px 0);
+    }
+    90% {
+      clip-path: inset(89px 0 2px 0);
+    }
+    93.33333% {
+      clip-path: inset(32px 0 59px 0);
+    }
+    96.66667% {
+      clip-path: inset(68px 0 23px 0);
+    }
+    100% {
+      clip-path: inset(43px 0 48px 0);
+    }
+  }
+
+  .scanlines {
+    overflow: hidden;
+    mix-blend-mode: difference;
+  }
+
+  .scanlines::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: repeating-linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(255, 255, 255, 0.05) 0.5%,
+      transparent 1%
+    );
+    animation: fudge 7s ease-in-out alternate infinite;
+    animation-delay: 3.5s; /* Menunggu typing selesai */
+  }
+
+  @keyframes fudge {
+    from {
+      transform: translate(0px, 0px);
+    }
+    to {
+      transform: translate(0px, 2%);
+    }
+  }
+
+  .glow {
+    text-shadow: 0 0 1000px rgb(223, 191, 191);
+    color: transparent;
+    position: absolute;
+    top: 0;
+    animation: glow-appear 0.1s linear;
+    animation-delay: 3.5s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+  }
+
+  @keyframes glow-appear {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .subtitle {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 100;
+    font-size: 0.8vw;
+    color: rgba(165, 141, 141, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 1em;
+    text-align: center;
+    position: absolute;
+    left: 17%;
+    animation: glitch-2 5s infinite;
+    animation-delay: 3.5s; /* Menunggu typing selesai */
+    opacity: 0;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes glitch-2 {
+    0% {
+      opacity: 0;
+      transform: rotateX(10deg) skewX(70deg);
+    }
+    1% {
+      opacity: 1;
+      transform: rotateX(10deg) skewX(70deg);
+    }
+    2% {
+      transform: rotateX(0deg) skewX(0deg);
+    }
   }
 }
 
